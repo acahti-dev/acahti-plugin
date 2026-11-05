@@ -26,4 +26,4 @@ cp -R cursor ~/.cursor/plugins/local/acahti
 
 Or install via the repo marketplace (`.cursor-plugin/marketplace.json`). Reload the Cursor window. Do not also add `acahti` to `~/.cursor/mcp.json`.
 
-Source: [github.com/benchyard/acahti-plugin](https://github.com/benchyard/acahti-plugin).
+Source: [github.com/acahti-ai/acahti-plugin](https://github.com/acahti-ai/acahti-plugin).

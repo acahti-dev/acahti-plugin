@@ -44,9 +44,9 @@ def export(config, output, commit):
                 "filesSHA256": {name: hashlib.sha256(data).hexdigest() for name, data in sorted(files.items())}}
     (output / "build.json").write_bytes(encode(metadata))
     (output / "README.md").write_text(
-        "# SAIDC Acahti workspace release\n\n"
-        "Generated from https://github.com/benchyard/acahti-plugin/tree/" + commit + ".\n\n"
-        "Do not edit this branch directly. Change main and let the workspace-release workflow rebuild it.\n"
+        "# " + config["workspace"] + " Acahti workspace release\n\n"
+        "Generated from https://github.com/acahti-ai/acahti-plugin/tree/" + commit + ".\n\n"
+        "Do not edit this branch directly. Regenerate from the pinned generic plugin source and workspace-owned configuration.\n"
         "An optional pluginId can adopt an unmanaged plugin; do not bind a plugin managed by another source. Installation policies are managed in ChatGPT.\n"
     )
     print(f"Exported {version} to {output}")
@@ -54,7 +54,7 @@ def export(config, output, commit):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--config", type=Path, default=ROOT / "workspaces/saidc.json")
+    parser.add_argument("--config", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--commit", required=True)
     args = parser.parse_args()

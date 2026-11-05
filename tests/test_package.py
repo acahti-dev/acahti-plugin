@@ -36,8 +36,6 @@ class ReleaseTests(unittest.TestCase):
         self.assertEqual(set(hooks), {"SessionStart", "UserPromptSubmit"})
         for event in hooks.values():
             self.assertEqual(event[0]["hooks"][0]["type"], "command")
-        workflow = yaml.safe_load((ROOT / ".github/workflows/workspace-release.yml").read_text())
-        self.assertIn("publish", workflow["jobs"])
 
     def test_urls(self):
         for value in ("http://example.com", "https://a:b@example.com", "https://example.com?q=x", "https://example.com/#fragment", "https://example.com:bad", "https://example.com/ bad"):
