@@ -13,7 +13,7 @@ Use MCP or CLI for identity, repositories, PRs and CI. Read `whoami.modules` for
 
 Acahti **0.5.29+** accepts both OAuth access tokens and personal tokens at `/mcp`. Version 0.5.27–0.5.28 rejected OAuth tokens even after a successful login. Upgrade the service, then let the client refresh or reconnect once.
 
-The administrator syncs the `workspace-saidc` marketplace and checks the import report. Verify installed plugin **1.10.0 or newer**, then run setup. This removes version 1.9's mandatory environment-token configuration and declares OAuth explicitly. Do not delete a shared plugin to upgrade it. A GitHub release is not proof that a desktop installed the new package.
+A workspace administrator syncs the workspace marketplace and checks the import report. Verify installed plugin **1.10.0 or newer**, then run setup. This removes version 1.9's mandatory environment-token configuration and declares OAuth explicitly. Do not delete a shared plugin to upgrade it. A GitHub release is not proof that a desktop installed the new package.
 
 For 401, check credential expiry, revocation and instance; for 403, review permissions. Diagnose transport failures separately. See the [official plugin OAuth configuration](https://developers.openai.com/plugins/build/plugins#configure-mcp-authentication).
 
@@ -23,6 +23,6 @@ For commits targeting Acahti, follow the skill: fresh MCP or CLI `whoami`, `setu
 
 ## Releases
 
-For SAIDC, merge reviewed changes into `main`. The `workspace-release` GitHub Actions workflow tests this source, bundles `workspaces/saidc.json`, and publishes the generated `workspace-saidc` branch. The workspace marketplace tracks that branch through daily sync or **Sync now**. Do not edit the generated branch or delete the workspace plugin to update it.
+Merge reviewed changes into `main`. A workspace marketplace is generated from `main` with `scripts/export_marketplace.py` and an operator-owned profile; see the [distribution guide](../docs/workspace-distribution.md). Do not delete the workspace plugin to update it.
 
 Use `scripts/package_workspace.py` for standalone ZIP distributions. The generic plugin remains instance-independent. Workspace sync distributes configuration, not personal tokens; verify the new version in a new task. Changed hooks may require renewed trust in `/hooks`.
