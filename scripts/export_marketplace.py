@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export a generated marketplace tree for the dedicated workspace release branch."""
+"""Export a generated workspace marketplace tree."""
 import argparse
 import hashlib
 import json
@@ -45,7 +45,7 @@ def export(config, output, commit):
     (output / "build.json").write_bytes(encode(metadata))
     (output / "README.md").write_text(
         "# " + config["workspace"] + " Acahti workspace release\n\n"
-        "Generated from https://github.com/acahti-ai/acahti-plugin/tree/" + commit + ".\n\n"
+        "Generated from https://github.com/acahti-dev/acahti-plugin/tree/" + commit + ".\n\n"
         "Do not edit this branch directly. Regenerate from the pinned generic plugin source and workspace-owned configuration.\n"
         "An optional pluginId can adopt an unmanaged plugin; do not bind a plugin managed by another source. Installation policies are managed in ChatGPT.\n"
     )

@@ -1,6 +1,6 @@
 # Acahti (Cursor)
 
-Cursor plugin for a self-hosted [Acahti](https://acahti.benchyard.com) instance: git, PRs, pipelines, secrets, commit checks, and optional Work / Argos / Chat modules (`whoami.modules`).
+Cursor plugin for a self-hosted [Acahti](https://acahti.dev) instance: git, PRs, pipelines, secrets, commit checks, and optional Work / Argos / Chat modules (`whoami.modules`).
 
 Set **ACAHTI_ROOT_URL** in Customize → Acahti → Configure (no trailing slash). MCP is `${ACAHTI_ROOT_URL}/mcp` (personal token from the `ACAHTI_TOKEN` environment variable). On first use the skill guides Benchyard Secrets setup if needed; CLI works when native MCP is unavailable. Then `whoami`, read `modules`, and follow `whoami.skill_url`.
 
@@ -26,4 +26,4 @@ cp -R cursor ~/.cursor/plugins/local/acahti
 
 Or install via the repo marketplace (`.cursor-plugin/marketplace.json`). Reload the Cursor window. Do not also add `acahti` to `~/.cursor/mcp.json`.
 
-Source: [github.com/acahti-ai/acahti-plugin](https://github.com/acahti-ai/acahti-plugin).
+Source: [github.com/acahti-dev/acahti-plugin](https://github.com/acahti-dev/acahti-plugin).
